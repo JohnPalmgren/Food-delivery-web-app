@@ -10,7 +10,7 @@ const Cart = (props) => {
   const total = `£${cartCtx.totalAmount.toFixed(2)}`;
   const cartItems = cartCtx.items;
 
-  const itemsInCart = cartCtx.items > 0;
+  const itemsInCart = cartCtx.items.length > 0;
 
   const cartItemRemoveHandler = (id) => {};
 
