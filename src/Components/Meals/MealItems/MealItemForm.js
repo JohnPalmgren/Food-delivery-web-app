@@ -3,25 +3,21 @@ import Input from "../../UI/Input";
 import classes from "./MealItemForm.module.css";
 
 const MealItemForm = (props) => {
+  const amountInputRef = useRef();
 
-  const amountInputRef = useRef()
-
-  const [validInputState, setValidInputState] = useState(true)
+  const [validInputState, setValidInputState] = useState(true);
 
   const submitHandler = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const inputAmount = amountInputRef.current.value;
     const inputNumber = +inputAmount;
 
-    if (inputAmount.trim().length === 0 ||
-      inputNumber < 0 ||
-      inputNumber > 5
-      ) {
-        setValidInputState(false)
-        return
-      } 
-    props.onAddToCart(inputNumber)
-  }
+    if (inputAmount.trim().length === 0 || inputNumber < 0 || inputNumber > 5) {
+      setValidInputState(false);
+      return;
+    }
+    props.onAddToCart(inputNumber);
+  };
 
   return (
     <form className={classes.form} onSubmit={submitHandler}>
